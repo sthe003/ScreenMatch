@@ -5,6 +5,8 @@ import br.com.alura.streaming.modelos.Episodio;
 import br.com.alura.streaming.modelos.Filme;
 import br.com.alura.streaming.modelos.Serie;
 
+import java.util.ArrayList;
+
 import static java.lang.System.*;
 
 public class Principal {
@@ -58,5 +60,12 @@ public class Principal {
         episodio.setSerie(lost);
         episodio.setTotalVisualizacoes(300);
         filtro.filtra(episodio);
+
+        ArrayList<Filme> listaDeFilmes = new ArrayList<>();
+        listaDeFilmes.add(meuFilme);
+        listaDeFilmes.add(segundoFilme);
+        listaDeFilmes.add(terceiroFilme);
+        out.println("Tamanho da lista: " + listaDeFilmes.size());
+        out.println("Primeiro filme: " + listaDeFilmes.get(0).getNome());
     }
 }
