@@ -11,8 +11,7 @@ import static java.lang.System.*;
 
 public class Principal {
     public static void main(String[] args) {
-        Filme meuFilme = new Filme("O Poderoso Chefão");
-        meuFilme.setAnoDeLancamento(1980);
+        Filme meuFilme = new Filme( "O Poderoso Chefão", 1980);
         meuFilme.setDuracaoEmMinutos(180);
         meuFilme.avalia(9);
 
@@ -23,22 +22,18 @@ public class Principal {
         out.println(meuFilme.getTotalDeAvaliacoes());
         out.println(meuFilme.pegaMedia());
 
-        Serie lost = new Serie();
-        lost.setNome("Lost");
-        lost.setAnoDeLancamento(2000);
+        Serie lost = new Serie(2000, "Lost");
         lost.exibeFichaTecnica();
         lost.setTemporadas(10);
         lost.setEpisodiosPorTemporada(5);
         lost.setMinutosPorEpisodio(50);
         out.println("Duração total: " + lost.getDuracaoEmMinutos());
 
-        Filme segundoFilme = new Filme("Coraline");
-        segundoFilme.setAnoDeLancamento(2005);
+        Filme segundoFilme = new Filme("Coraline", 2005);
         segundoFilme.setDuracaoEmMinutos(120);
         segundoFilme.avalia(10);
 
-        Filme terceiroFilme = new Filme("Avatar");
-        terceiroFilme.setAnoDeLancamento(2026);
+        Filme terceiroFilme = new Filme("Avatar", 2026);
         terceiroFilme.setDuracaoEmMinutos(180);
         terceiroFilme.avalia(8);
 

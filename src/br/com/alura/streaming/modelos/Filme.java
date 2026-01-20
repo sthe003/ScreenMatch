@@ -5,8 +5,8 @@ import br.com.alura.streaming.calculos.Classificavel;
 public class Filme extends Titulo implements Classificavel {
         private String diretor;
 
-        public Filme(String nome){
-                this.setNome(nome);
+        public Filme(String nome, int anoDeLancamento){
+                super(anoDeLancamento, nome);
         }
 
         public String getDiretor() {
