@@ -1,4 +1,4 @@
-package br.com.alura.streaming;
+package br.com.alura.streaming.principal;
 import br.com.alura.streaming.calculos.CalculadoraDeTempo;
 import br.com.alura.streaming.calculos.FiltroRecomendacao;
 import br.com.alura.streaming.modelos.Episodio;
