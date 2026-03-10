@@ -9,8 +9,11 @@ import java.util.ArrayList;
 public class PrincipalComListas {
     public static void main(String[] args) {
         Filme meuFilme = new Filme( "O Poderoso Chefão", 1980);
+        meuFilme.avalia(8);
         Filme segundoFilme = new Filme("Coraline", 2005);
+        segundoFilme.avalia(10);
         Filme terceiroFilme = new Filme("Avatar", 2026);
+        terceiroFilme.avalia(7);
         Serie lost = new Serie(2000, "Lost");
 
         ArrayList<Titulo> listaDeAssistidos = new ArrayList<>();
@@ -20,7 +23,9 @@ public class PrincipalComListas {
         listaDeAssistidos.add(lost);
 
         for (Titulo item : listaDeAssistidos){
-            System.out.println(item);
+            System.out.println(item.getNome());
+            Filme filme = (Filme) item;
+            System.out.println("Classificação: " + filme.getClassificacao());
         }
     }
 
