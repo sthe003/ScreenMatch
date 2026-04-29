@@ -39,6 +39,10 @@ public class PrincipalComListas {
         Collections.sort(buscaPorArtista);
         System.out.println("Ordem alfabetica: ");
         System.out.println(buscaPorArtista);
+        
+        System.out.println("Lista de titulos ordenados");
+        Collections.sort(listaDeAssistidos);
+        System.out.println(listaDeAssistidos);
 
     }
 

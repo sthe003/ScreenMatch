@@ -1,7 +1,6 @@
 package br.com.alura.streaming.modelos;
 
-public abstract class Titulo {
-
+public abstract class Titulo implements Comparable<Titulo>{
 
     private String nome;
     private int anoDeLancamento;
@@ -71,5 +70,10 @@ public abstract class Titulo {
 
     public int duracaoEmMinutos(){
         return duracaoEmMinutos;
+    }
+
+    @Override
+    public int compareTo(Titulo outroTitulo){
+        return this.getNome().compareTo(outroTitulo.getNome());
     }
 }
