@@ -4,9 +4,7 @@ import br.com.alura.streaming.modelos.Filme;
 import br.com.alura.streaming.modelos.Serie;
 import br.com.alura.streaming.modelos.Titulo;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
+import java.util.*;
 
 public class PrincipalComListas {
     public static void main(String[] args) {
@@ -31,7 +29,7 @@ public class PrincipalComListas {
             }
         }
 
-        ArrayList<String> buscaPorArtista = new ArrayList<>();
+        List<String> buscaPorArtista = new LinkedList<>();
         buscaPorArtista.add("Adam Slander");
         buscaPorArtista.add("Johnny Depp");
         buscaPorArtista.add("Michael B. Jordan");
