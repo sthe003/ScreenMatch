@@ -1,8 +1,13 @@
 package br.com.alura.streaming.modelos;
 
-public abstract class Titulo implements Comparable<Titulo>{
+import com.google.gson.annotations.SerializedName;
 
+public class Titulo implements Comparable<Titulo>{
+
+    //dizendo para o gson que nome = título
+    @SerializedName("Title")
     private String nome;
+    @SerializedName("Year")
     private int anoDeLancamento;
     private boolean incluidoNoPlano;
     private double somaDasAvaliacoes;
@@ -12,6 +17,12 @@ public abstract class Titulo implements Comparable<Titulo>{
     public Titulo(int anoDeLancamento, String nome) {
         this.anoDeLancamento = anoDeLancamento;
         this.nome = nome;
+    }
+
+    public Titulo(TituloOmdb meuTituloOmdb) {
+        this.nome = meuTituloOmdb.title();
+        this.anoDeLancamento = Integer.valueOf(meuTituloOmdb.year());
+        this.duracaoEmMinutos = Integer.valueOf(meuTituloOmdb.runtime().substring(0, 2));
     }
 
     public String getNome() {
@@ -76,4 +87,15 @@ public abstract class Titulo implements Comparable<Titulo>{
     public int compareTo(Titulo outroTitulo){
         return this.getNome().compareTo(outroTitulo.getNome());
     }
+
+    @Override
+    public String toString() {
+        return "nome='" + nome + '\'' +
+                ", anoDeLancamento=" + anoDeLancamento + "," +
+                "duração em minutos: " + duracaoEmMinutos +
+                '}';
+    }
 }
+
+
+
