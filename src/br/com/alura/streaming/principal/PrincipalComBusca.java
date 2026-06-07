@@ -14,29 +14,38 @@ import java.util.Scanner;
 
 public class PrincipalComBusca {
     public static void main(String[] args) throws IOException, InterruptedException {
+        try{
+            Scanner leitura = new Scanner(System.in);
+            System.out.println("Qual filme você procura? ");
+            var busca = leitura.nextLine();
 
-        Scanner leitura = new Scanner(System.in);
-        System.out.println("Qual filme você procura? ");
-        var busca = leitura.nextLine();
+            String endereco = "https://www.omdbapi.com/?t=" + busca + "&apikey=245ec16b";
 
-        String endereco = "https://www.omdbapi.com/?t=" + busca + "&apikey=245ec16b";
+            HttpClient client = HttpClient.newHttpClient();
+            HttpRequest request = HttpRequest.newBuilder()
+                    .uri(URI.create(endereco))
+                    .build();
+            HttpResponse<String> response = client
+                    .send(request, HttpResponse.BodyHandlers.ofString());
 
-        HttpClient client = HttpClient.newHttpClient();
-        HttpRequest request = HttpRequest.newBuilder()
-                .uri(URI.create(endereco))
-                .build();
-        HttpResponse<String> response = client
-                .send(request, HttpResponse.BodyHandlers.ofString());
+            String json = response.body();
+            System.out.println(json);
 
-        String json = response.body();
-        System.out.println(json);
+            Gson gson = new GsonBuilder().setFieldNamingPolicy(FieldNamingPolicy.UPPER_CAMEL_CASE).create();
+            TituloOmdb meuTituloOmdb = gson.fromJson(json, TituloOmdb.class);
+            System.out.println(meuTituloOmdb);
 
-        Gson gson = new GsonBuilder().setFieldNamingPolicy(FieldNamingPolicy.UPPER_CAMEL_CASE).create();
-        TituloOmdb meuTituloOmdb = gson.fromJson(json, TituloOmdb.class);
-        System.out.println(meuTituloOmdb);
-        Titulo meuTitulo = new Titulo(meuTituloOmdb);
+            Titulo meuTitulo = new Titulo(meuTituloOmdb);
+            System.out.println(meuTitulo);
+            //tratando casos de excecao
+        } catch (NumberFormatException e){
+            System.out.println("Erro: " + e.getMessage());
+        } catch (IllegalAccessError e){
+            System.out.println("Erro de argumento: " + e.getMessage());
+        }
 
-        System.out.println(meuTitulo);
+
+
 
     }
 }
