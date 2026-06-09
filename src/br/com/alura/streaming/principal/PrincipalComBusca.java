@@ -1,4 +1,5 @@
 package br.com.alura.streaming.principal;
+import br.com.alura.streaming.exceptions.ErroDeConversaoException;
 import br.com.alura.streaming.modelos.Titulo;
 import br.com.alura.streaming.modelos.TituloOmdb;
 import com.google.gson.FieldNamingPolicy;
@@ -42,6 +43,8 @@ public class PrincipalComBusca {
             System.out.println("Erro: " + e.getMessage());
         } catch (IllegalAccessError e){
             System.out.println("Erro de argumento: " + e.getMessage());
+        } catch (ErroDeConversaoException e){
+            System.out.println("Ano fora de formatação: " + e.getMessage());
         }
 
 
