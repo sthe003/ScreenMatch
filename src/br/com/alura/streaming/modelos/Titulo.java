@@ -1,7 +1,6 @@
 package br.com.alura.streaming.modelos;
 
 import br.com.alura.streaming.exceptions.ErroDeConversaoException;
-import com.google.gson.annotations.SerializedName;
 
 public class Titulo implements Comparable<Titulo>{
 

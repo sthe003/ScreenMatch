@@ -1,12 +1,10 @@
 package br.com.alura.streaming.principal;
 import br.com.alura.streaming.exceptions.ErroDeConversaoException;
-import br.com.alura.streaming.modelos.Filme;
 import br.com.alura.streaming.modelos.Titulo;
 import br.com.alura.streaming.modelos.TituloOmdb;
 import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-
 import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URI;
@@ -24,6 +22,7 @@ public class PrincipalComBusca {
         List<Titulo> titulos = new ArrayList<>();
         Gson gson = new GsonBuilder()
                 .setFieldNamingPolicy(FieldNamingPolicy.UPPER_CAMEL_CASE)
+                .setPrettyPrinting()
                 .create();
 
         while(!busca.equalsIgnoreCase("sair")) {
@@ -66,8 +65,6 @@ public class PrincipalComBusca {
             }
 
         }
-
-
 
         FileWriter escrita = new FileWriter("filmes.json");
         escrita.write(gson.toJson(titulos));
